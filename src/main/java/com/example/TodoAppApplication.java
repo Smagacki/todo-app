@@ -15,18 +15,11 @@ import java.util.Arrays;
 public class TodoAppApplication implements RepositoryRestConfigurer {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext ctx = SpringApplication.run(TodoAppApplication.class, args);
-
-//		String[] beans = ctx.getBeanDefinitionNames();
-//		Arrays.sort(beans);
-//		for (String bean : beans) {
-//			System.out.println(bean);
-//		}
+		SpringApplication.run(TodoAppApplication.class, args);
 	}
 
 	@Override
 	public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingListener) {
-		//RepositoryRestConfigurer.super.configureValidatingRepositoryEventListener(validatingListener);
 		validatingListener.addValidator("beforeCreate", validator());
 		validatingListener.addValidator("beforeSave", validator());
 
@@ -37,4 +30,3 @@ public class TodoAppApplication implements RepositoryRestConfigurer {
 		return new LocalValidatorFactoryBean();
 	}
 }
-
