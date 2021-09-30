@@ -8,10 +8,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RepositoryRestController
+//@RepositoryRestController
+@RestController // zmiana z RepositoryRestController
 public class TaskController {
     public static final Logger logger = LoggerFactory.getLogger(Task.class);
     private final TaskRepository taskRepository;
